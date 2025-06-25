@@ -1,42 +1,43 @@
 <template>
-  <section class="deep-chat-section" :style="cssVars">
-    <deep-chat
-      :connect="content.connect"
-      :camera="content.camera"
-      :microphone="content.microphone"
-      :speech-to-text="content.speechToText"
-      :text-to-speech="content.textToSpeech"
-    />
-  </section>
+  <deep-chat
+    :connect="connect"
+    :camera="camera"
+    :microphone="microphone"
+    :speech-to-text="speechToText"
+    :text-to-speech="textToSpeech"
+  />
 </template>
 
 <script>
+import 'deep-chat';
+
 export default {
+  name: 'WewebDeepChatSection',
   props: {
-    content: { type: Object, required: true }
-  },
-  computed: {
-    cssVars() {
-      return { '--deep-chat-text-color': this.content.textColor };
+    connect: {
+      type: Object,
+      required: true
+    },
+    camera: {
+      type: Boolean,
+      default: false
+    },
+    microphone: {
+      type: Boolean,
+      default: false
+    },
+    speechToText: {
+      type: Boolean,
+      default: false
+    },
+    textToSpeech: {
+      type: Boolean,
+      default: false
     }
-  },
-  async mounted() {
-    if (typeof window !== 'undefined') {
-      await import('deep-chat');
-    }
-  },
-  compilerOptions: {
-    isCustomElement: tag => tag === 'deep-chat'
   }
 };
 </script>
 
 <style scoped>
-.deep-chat-section {
-  width: 100%;
-}
-
-deep-chat {
-  color: var(--deep-chat-text-color);
-}
+/* Add any custom styling here if needed */
 </style>

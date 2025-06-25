@@ -1,39 +1,36 @@
-export default {
+module.exports = {
+  name: 'weweb-deep-chat',
   type: 'section',
-  editor: {
-    label: { en: 'Deep Chat' },
-    icon: 'chat'
-  },
-  properties: {
-    connect: {
-      label: { en: 'Connect JSON' },
-      type: 'Json',
-      defaultValue: {}
+  props: [
+    {
+      name: 'connect',
+      type: 'object',
+      required: true,
+      description: 'Deep Chat connection settings'
     },
-    camera: {
-      label: { en: 'Enable camera' },
-      type: 'Switch',
-      defaultValue: false
+    {
+      name: 'camera',
+      type: 'boolean',
+      default: false,
+      description: 'Enable camera access'
     },
-    microphone: {
-      label: { en: 'Enable microphone' },
-      type: 'Switch',
-      defaultValue: false
+    {
+      name: 'microphone',
+      type: 'boolean',
+      default: false,
+      description: 'Enable microphone access'
     },
-    speechToText: {
-      label: { en: 'Speech-to-Text' },
-      type: 'Switch',
-      defaultValue: false
+    {
+      name: 'speechToText',
+      type: 'boolean',
+      default: false,
+      description: 'Enable speech-to-text'
     },
-    textToSpeech: {
-      label: { en: 'Text-to-Speech' },
-      type: 'Switch',
-      defaultValue: false
-    },
-    textColor: {
-      label: { en: 'Text color' },
-      type: 'Color',
-      defaultValue: '#F23636'
+    {
+      name: 'textToSpeech',
+      type: 'boolean',
+      default: false,
+      description: 'Enable text-to-speech'
     }
-  }
-}
+  ]
+};
